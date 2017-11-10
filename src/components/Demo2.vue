@@ -7,29 +7,19 @@
 </div>    
 </template>
 <script>
-import Vuex from 'vuex'
-const store = new Vuex.Store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment: state => state.count++,
-    decrement: state => state.count--
-  }
-})
 export default {
   name: 'Demo2',
   computed: {
     count () {
-      return store.state.count
+      return this.$store.state.count
     }
   },
   methods: {
     increment () {
-      store.commit('increment')
+      this.$store.commit('increment')
     },
     decrement () {
-      store.commit('decrement')
+      this.$store.commit('decrement')
     }
   }
 }
