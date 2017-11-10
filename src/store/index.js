@@ -12,7 +12,11 @@ const store = new Vuex.Store({
   },
   mutations: {
     increment: state => state.count++,
-    decrement: state => state.count--
+    decrement: state => state.count--,
+    addTodo (state, todo) {
+      console.log(todo)
+      state.todos.push(todo)
+    }
   },
   getters: {
     doneTodos: state => {
