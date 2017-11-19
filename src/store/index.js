@@ -22,6 +22,14 @@ const store = new Vuex.Store({
     doneTodos: state => {
       return state.todos.filter(todo => todo.done)
     }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment')
+    },
+    decrement (context) {
+      context.commit('decrement')
+    }
   }
 })
 
