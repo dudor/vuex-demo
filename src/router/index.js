@@ -4,6 +4,7 @@ import Demo1 from '@/components/Demo1'
 import Demo2 from '@/components/Demo2'
 import Demo3 from '@/components/Demo3'
 import Demo4 from '@/components/Demo4'
+import Counter from '@/components/Counter'
 Vue.use(Router)
 
 export default new Router({
@@ -27,6 +28,11 @@ export default new Router({
       path: '/demo4',
       name: 'Demo4',
       component: Demo4
+    },
+    {
+      path: '/counter',
+      name: 'Counter',
+      component: Counter
     }
   ]
 })
