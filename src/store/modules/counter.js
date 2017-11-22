@@ -20,7 +20,20 @@ const getters = {
 
 const actions = {
   increment: context => context.commit('increment'),
-  decrement: context => context.commit('decrement')
+  decrement: context => context.commit('decrement'),
+  incrementIfOdd (context) {
+    if ((state.count + 1) % 2 === 0) {
+      context.commit('increment')
+    }
+  },
+  incrementAsync (context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        context.commit('increment')
+        resolve()
+      }, 1000)
+    })
+  }
 }
 
 export default {
