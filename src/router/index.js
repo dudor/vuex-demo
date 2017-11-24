@@ -5,6 +5,7 @@ import Demo2 from '@/components/Demo2'
 import Demo3 from '@/components/Demo3'
 import Demo4 from '@/components/Demo4'
 import Counter from '@/components/Counter'
+import TodoIndex from '@/components/TodoIndex'
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
       path: '/counter',
       name: 'Counter',
       component: Counter
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: TodoIndex
     }
   ]
 })
