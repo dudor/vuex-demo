@@ -1,92 +1,46 @@
-<template>
-<el-table
-      :data="tableData"
-      style="width: 100%">
-      <el-table-column
-      type="selection"
-      width="55">
-      <el-table-column
-        prop="date"
-        label="日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址">
-      </el-table-column>
+  <template>
+  <div>
+<el-row :gutter="5">
+<el-col :span="12">
+<el-input v-model="txtTodo" placeholder="请输入内容" autocomplete="off"></el-input>
+</el-col>
+<el-col :span="2">
+<el-button @click="addTodo">增加</el-button>
+</el-col>
+</el-row>
+    <el-table :data="tableData" style="width: 100%">
+      <el-table-column type="index">
+    </el-table-column>
+    <el-table-column prop="text" label="內容">
+    </el-table-column>
+    <el-table-column label="操作">
+      <template slot-scope="scope">
+        <el-button @click="">删除</el-button>
+      </template>
+    </el-table-column>
     </el-table>
-</template>
+  </div>
+  </template>
 
 <script>
 export default {
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
-        }
-      ]
+      txtTodo: ""
     };
+  },
+  computed: {
+    tableData () {
+      return this.$store.state.TodoMvc.todos
+    }
+  },
+  methods: {
+    addTodo() {
+      if (this.txtTodo.trim()) {
+        this.$store.commit("TodoMvc/addTodo", { text: this.txtTodo });
+        this.txtTodo = ''
+      }
+    }
   }
 };
 </script>
-
-
-<style>
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
-
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  line-height: 160px;
-}
-
-body > .el-container {
-  margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
-}
-</style>

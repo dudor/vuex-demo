@@ -8,20 +8,20 @@
 </template>
 <script>
 export default {
-  name: 'Demo2',
+  name: "Demo2",
   computed: {
-    count () {
-      return this.$store.state.count
+    count() {
+      return this.$store.state.count;
     }
   },
   methods: {
-    increment () {
-      this.$store.commit('increment')
+    increment() {
+      this.$store.commit("increment");
     },
-    decrement () {
-      this.$store.commit('decrement')
+    decrement() {
+      this.$store.commit("decrement");
     }
   }
-}
+};
 </script>
 

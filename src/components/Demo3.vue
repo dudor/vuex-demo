@@ -15,27 +15,27 @@
 
 <script>
 export default {
-  name: 'demo3',
-  data () {
+  name: "demo3",
+  data() {
     return {
-      text: ''
-    }
+      text: ""
+    };
   },
   computed: {
-    doneTodos () {
-      return this.$store.getters.doneTodos
+    doneTodos() {
+      return this.$store.getters.doneTodos;
     }
   },
   methods: {
-    add () {
-      this.$store.commit('addTodo', {
+    add() {
+      this.$store.commit("addTodo", {
         id: this.$store.state.todos.length + 1,
         text: this.text,
         done: true
-      })
-      this.text = ''
+      });
+      this.text = "";
     }
   }
-}
+};
 </script>
 

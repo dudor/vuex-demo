@@ -8,20 +8,20 @@
 </template>
 <script>
 export default {
-  name: 'Demo4',
+  name: "Demo4",
   computed: {
-    count () {
-      return this.$store.state.count
+    count() {
+      return this.$store.state.count;
     }
   },
   methods: {
-    increment () {
-      this.$store.dispatch('increment')
+    increment() {
+      this.$store.dispatch("increment");
     },
-    decrement () {
-      this.$store.dispatch('decrement')
+    decrement() {
+      this.$store.dispatch("decrement");
     }
   }
-}
+};
 </script>
 
